@@ -15,7 +15,7 @@ A simple AI chat app using the GitHub Models REST API.
 ```env
 GITHUB_TOKEN=your_real_token
 GITHUB_ORG=your-org-login
-GITHUB_MODEL=openai/gpt-4.1
+GITHUB_MODEL=openai/gpt-5-chat
 PORT=3000
 ```
 
@@ -48,4 +48,5 @@ http://localhost:3000
 
 - Keep `.env` private. It is ignored by `.gitignore`.
 - You can change the default model via `GITHUB_MODEL`.
-- If you see a 403 budget message, verify your account/org has GitHub Models usage available.
+- If you see a 403 budget message on `openai/gpt-4.1`, switch to `openai/gpt-5-chat`.
+- If your token comes from an org grant, set `GITHUB_ORG` to that org login.

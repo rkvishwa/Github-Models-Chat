@@ -6,7 +6,7 @@ const app = express();
 const port = Number(process.env.PORT || 3000);
 const githubToken = process.env.GITHUB_TOKEN;
 const githubOrg = (process.env.GITHUB_ORG || "").trim();
-const defaultModel = process.env.GITHUB_MODEL || "openai/gpt-4.1";
+const defaultModel = process.env.GITHUB_MODEL || "openai/gpt-5-chat";
 const inferenceEndpoint = githubOrg
   ? `https://models.github.ai/orgs/${encodeURIComponent(githubOrg)}/inference/chat/completions`
   : "https://models.github.ai/inference/chat/completions";
@@ -59,8 +59,14 @@ app.post("/api/chat", async (req, res) => {
         details: data
       };
 
-      if (response.status === 403 && githubOrg) {
-        payload.hint = "Model usage may be limited for this account or organization grant.";
+      if (response.status === 403) {
+        if (githubOrg) {
+          payload.hint =
+            "Model usage may be limited for this account or organization grant. Try a different model like openai/gpt-5-chat.";
+        } else {
+          payload.hint =
+            "This request is attributed to your personal account because GITHUB_ORG is empty. If your token is from an organization grant, set GITHUB_ORG in .env and restart the server.";
+        }
       }
 
       return res.status(response.status).json(payload);
