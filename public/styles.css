@@ -40,6 +40,25 @@ body {
   color: var(--muted);
 }
 
+.top-controls {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  padding: 12px;
+  display: grid;
+  gap: 8px;
+}
+
+.model-status {
+  margin: 0;
+  font-size: 0.85rem;
+  color: var(--muted);
+}
+
+.model-status[data-state="error"] {
+  color: #b54708;
+}
+
 .messages {
   background: var(--surface);
   border: 1px solid var(--line);
@@ -87,12 +106,14 @@ body {
 }
 
 input,
+select,
 textarea,
 button {
   font: inherit;
 }
 
 input,
+select,
 textarea {
   border: 1px solid var(--line);
   border-radius: 8px;
