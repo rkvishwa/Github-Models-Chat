@@ -1,0 +1,17 @@
+{
+  "name": "github-models-chat-app",
+  "version": "1.0.0",
+  "description": "Simple AI chat app using GitHub Models API",
+  "private": true,
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "dependencies": {
+    "dotenv": "^16.4.7",
+    "express": "^4.21.2"
+  }
+}

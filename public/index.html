@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>GitHub Models Chat</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="app">
+      <header class="header">
+        <h1>GitHub Models Chat</h1>
+        <p>Simple AI chat app powered by your GitHub token from .env</p>
+      </header>
+
+      <section id="messages" class="messages" aria-live="polite"></section>
+
+      <form id="chat-form" class="chat-form">
+        <label for="model">Model</label>
+        <input id="model" name="model" type="text" value="openai/gpt-4.1" />
+
+        <label for="prompt">Message</label>
+        <textarea
+          id="prompt"
+          name="prompt"
+          rows="3"
+          placeholder="Type your message..."
+          required
+        ></textarea>
+
+        <button id="send" type="submit">Send</button>
+      </form>
+    </main>
+
+    <script src="app.js"></script>
+  </body>
+</html>
